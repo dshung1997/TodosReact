@@ -1,0 +1,96 @@
+.footer {
+    width: 550px;
+    background: #FEFEFE;
+    margin: auto;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box; 
+    box-shadow: 0 2px 4px -5px rgba(0, 0, 0, 0.2),
+                0 25px 50px -5px rgba(0, 0, 0, 0.1);
+
+                box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2),
+	            0 8px 0 -3px #f6f6f6,
+	            0 9px 1px -3px rgba(0, 0, 0, 0.2),
+	            0 16px 0 -6px #f6f6f6,
+                0 17px 2px -6px rgba(0, 0, 0, 0.2);
+                
+
+    color: #777;            
+}
+
+/* .footer:before {
+	content: '';
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	height: 50px;
+	overflow: hidden;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2),
+	            0 8px 0 -3px #f6f6f6,
+	            0 9px 1px -3px rgba(0, 0, 0, 0.2),
+	            0 16px 0 -6px #f6f6f6,
+	            0 17px 2px -6px rgba(0, 0, 0, 0.2);
+} */
+
+.todos-info {
+    float: left;
+    position: relative; 
+    margin-left: 6px;
+}
+
+.todos-info span {
+    color: #777;
+    padding: 3px;
+    position: relative;
+}
+
+.filters {
+	margin: 0 0 0 60px;
+	padding: 0;
+	list-style: none;
+	position: relative;
+	right: 0;
+    left: 0;
+    
+    float: left;
+}
+
+.filters li {
+	display: inline;
+}
+
+.filters li a {
+	color: inherit;
+	margin: 3px;
+	padding: 3px 7px;
+	text-decoration: none;
+	border: 1px solid transparent;
+	border-radius: 3px;
+}
+
+.filters li a.selected,
+.filters li a:hover {
+	border-color: rgba(175, 47, 47, 0.1);
+}
+
+.filters li a.selected {
+	border-color: rgba(175, 47, 47, 0.2);
+}
+
+.clear-completed {
+    background: #fff;
+    border: none;
+    margin-left: 20px;
+    cursor: pointer;
+    outline: none;
+
+    color: #777;
+    font-size: 16px;
+
+    /* display: none; */
+}
+
+.clear-completed:hover {
+    text-decoration: underline;
+}
