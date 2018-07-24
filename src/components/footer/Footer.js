@@ -1,8 +1,14 @@
 import React, { Component } from 'react'
 import './Footer.css'
-import {BrowserRouter as Router, NavLink } from 'react-router-dom'
+import {BrowserRouter as Router, NavLink, Route, Switch } from 'react-router-dom'
 
 export default class Footer extends Component {
+
+    handleModeChange = (e) => {
+        let mode = e.target.text.toLowerCase();
+        this.props.handleModeChange(mode);
+    }
+
   render() {
     return (
         <Router>
@@ -15,22 +21,20 @@ export default class Footer extends Component {
 
                 <ul className='filters'>
                     <li> 
-                        <NavLink to='/' className='selected'>All</NavLink>
+                        <NavLink to='/' exact activeClassName='selected' onClick={this.handleModeChange}>All</NavLink>
                     </li>
 
                     <li> 
-                        <NavLink to='/active'>Active</NavLink>
+                        <NavLink to='/active' exact activeClassName='selected' onClick={this.handleModeChange}>Active</NavLink>
                     </li>
 
                     <li> 
-                        <NavLink to='/completed'>Completed</NavLink>
+                        <NavLink to='/completed' exact activeClassName='selected' onClick={this.handleModeChange}>Completed</NavLink>
                     </li>
                 </ul>
 
                 <button className='clear-completed'>Clear completed</button>
             </div>
-
-
         </Router>
     )
   }

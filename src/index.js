@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
 
 // ReactDOM.render(
 //     <BrowserRouter>
@@ -20,5 +21,33 @@ import registerServiceWorker from './registerServiceWorker';
 //     , document.getElementById('root'));
 // registerServiceWorker();
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const AppComponent = ({match}) => {
+
+    console.log('match');
+    console.log(match);
+    if(match.url === '/')
+    {
+        return <App mode='all' />
+    }
+    else if(match.url === '/active')
+    {
+        return <App mode='active' />
+    }
+
+    return <App mode='completed'/>
+    // return <h1>Error</h1>;
+    
+}
+
+ReactDOM.render(
+       <BrowserRouter>
+            <Switch>
+                {/* <IndexRoute component={AppComponent} /> */}
+                <Route path='*' exact component={App}/>
+                {/* <Route path="/:mode" exact component={AppComponent}/> */}
+                {/* <Route path="/completed" exact component={<App mode='completed' />}/> */}
+            </Switch>
+       </BrowserRouter>
+    // <App mode='all'/>
+   , document.getElementById('root'));
 registerServiceWorker();

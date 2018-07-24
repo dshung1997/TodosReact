@@ -9,6 +9,7 @@
 }
 
 .new-todo-input {
+    width: 450px;
     border: none;
     position: relative;
     line-height: 1.4em;

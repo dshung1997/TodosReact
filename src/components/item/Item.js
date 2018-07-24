@@ -7,27 +7,36 @@ export default class Item extends Component {
     constructor(props) {
         super(props);
 
-        // this.state = {
-        //     completed:  props.completed,
-        //     content:    props.content,
-        //     id:         props.id
-        // }
+        this.state = {
+            itemId: props.itemId
+        }
+        
+        console.log("Constructor Item " + "content " + this.props.content + " completed " + this.props.completed + " id " + this.state.itemId);
 
-        console.log("Item " + "content " + props.content + "|" + this.props.content + " completed " + props.completed + "|" + this.props.completed + " id " + props.id + "|" + this.props.id);
     }
-    
-    handleToggleItem = () => {
-        console.log("Press ");
-        console.log("Item " + "content " + this.props.content + "|" + this.props.content + " completed " + this.props.completed + "|" + this.props.completed + " id " + this.props.id + "|" + this.props.id);
 
-        this.setState((prev, props) => {
-            return {completed: !prev.completed};
-        });
+    // componentWillReceiveProps(props) {
+    //     this.setState({
+    //         completed:  props.completed,
+    //         content:    props.content,
+    //         id:         props.id
+    //     });
+    // }
+    
+    handleToggleButton = () => {
+        console.log("Press ");
+        //console.log("Render Item " + "content " + this.props.content + "|" + this.state.content + " completed " + this.props.completed + "|" + this.state.completed + " id " + this.props.id + "|" + this.state.id);
+
+        
+        // this.setState((prev, props) => {
+        //     return {completed: !prev.completed};
+        // });
+        this.props.handleToggleItem(this.props.itemId);
     }
 
     handleDeteleButton = () => {
-        console.log("Delete "+this.props.id);
-        this.props.handleDeteleItem(this.props.id);
+        console.log("Delete "+this.props.itemId);
+        this.props.handleDeteleItem(this.props.itemId);
     }
 
     handleOnFocus = () => {
@@ -35,18 +44,18 @@ export default class Item extends Component {
     }
 
     render() {
-        // this.setState({
-        //     completed:  this.props.completed,
-        //     content:    this.props.content,
-        //     id:         this.props.id
-        // });
+        console.log("Render Item " + "content " + this.props.content + " completed " + this.props.completed + " id " + this.state.itemId);
 
-        return (
-            <div className='item' onFocus={this.handleOnFocus}>
-                <input className="toggle" type="checkbox" onClick={this.handleToggleItem} defaultChecked={this.props.completed}/>
-                <label className={classNames({completed: this.props.completed})}>{this.props.content}</label>
-                <button className="delete-item"><i className="fa fa-times" onClick={this.handleDeteleButton}></i></button>
-            </div>
-        )
+        if( this.props.mode === 'all' || (this.props.mode === 'active' && !this.props.completed) || (this.props.mode === 'completed' && this.props.completed))
+        {
+            return (
+                <div className='item' onFocus={this.handleOnFocus}>
+                    <input className="toggle" type="checkbox" onClick={this.handleToggleButton} defaultChecked={this.props.completed}/>
+                    <label className={classNames({completed: this.props.completed})}>{this.props.content}</label>
+                    <button className="delete-item"><i className="fa fa-times" onClick={this.handleDeteleButton}></i></button>
+                </div>
+            );
+        }
+        else return (<div></div>);
     }
 }

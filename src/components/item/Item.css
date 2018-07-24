@@ -1,8 +1,13 @@
 .item {
+    display: block;
     background-color: #fefefe;
     text-align: left;
     position: relative;
     border-bottom: #d9d9d9 solid 1px;
+}
+
+.item .hide {
+    display: none;
 }
 
 .item label {

@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
 import './Header.css';
 
-export default class Title extends Component {
+export default class Header extends Component {
   render() {
+    let text = this.props.title;
+
     return (
         <div className='title'>
             <p>
-                todos
+                {text}
             </p>
         </div>
     )
