@@ -9,6 +9,22 @@ export default class Header extends Component {
     }
 
   render() {
+
+    let todos = [
+        {
+            a: '1',
+            b: '2',
+        },
+        {
+            a: '11',
+            b: '22',
+        }
+    ]
+
+    let hihi = Object.assign([], todos);
+    hihi[0].a = '55';
+
+
     return (
       <div>
         <Title title={this.props.title}/>
@@ -16,4 +32,8 @@ export default class Header extends Component {
       </div>
     )
   }
+
+  
 }
+
+

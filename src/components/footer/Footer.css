@@ -1,9 +1,10 @@
 .footer {
+    height: 40px;
     width: 550px;
     background: #FEFEFE;
     margin: auto;
     text-align: center;
-    padding: 20px;
+    padding: 12px;
     box-sizing: border-box; 
     box-shadow: 0 2px 4px -5px rgba(0, 0, 0, 0.2),
                 0 25px 50px -5px rgba(0, 0, 0, 0.1);
@@ -93,4 +94,9 @@
 
 .clear-completed:hover {
     text-decoration: underline;
+}
+
+.clear-completed:disabled {
+    color : transparent;
+    visibility: hidden;
 }
